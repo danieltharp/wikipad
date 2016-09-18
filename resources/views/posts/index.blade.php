@@ -13,6 +13,11 @@
                         <a href="/posts/{{ $entry->id }}/edit">Edit</a>&nbsp;
                         <a href="/posts/{{ $entry->id }}/delete" class="text-danger">Delete</a>
                     </span>
+                    <br>
+                    {{ $entry->latest->created_at->diffForHumans() }}
+                    <span class="pull-right">
+                        Versions: {{ $entry->version->count() }}
+                    </span>
                 </li>
         @endforeach
         </ul>

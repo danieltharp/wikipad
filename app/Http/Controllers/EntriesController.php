@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Version;
-use App\Latest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Entry;
 use Illuminate\Support\Facades\Auth;
-use DB;
 
 class EntriesController extends Controller
 {
@@ -74,5 +72,13 @@ class EntriesController extends Controller
             echo $item;
         }
 
+    }
+
+    public function compare(Entry $entry)
+    {
+        $rversions = Entry::find($entry->id)->version->pluck('created_at', 'description')->all();
+        $versions = array_reverse($rversions); unset($rversions);
+//        dd($versions);
+        return view('versions.compare', compact('versions'));
     }
 }

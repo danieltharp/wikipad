@@ -24,3 +24,5 @@ Route::get('/posts/{entry}/delete', 'EntriesController@confirmDelete');
 Route::delete('posts/{entry}', 'EntriesController@delete');
 
 Route::patch('/posts/{entry}', 'VersionsController@update');
+
+Route::get('/posts/{entry}/revisions', 'EntriesController@compare');

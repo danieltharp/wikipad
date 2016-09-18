@@ -28,7 +28,7 @@ class VersionsController extends Controller
             ]);
 
         $lastversion = Version::where('entry_id', $request->entry)->orderBy('version_id', 'desc')->first();
-        $newrevision->version_id = $lastversion->version_id++;
+        $newrevision->version_id = $lastversion->version_id + 1;
 
         $latest = Latest::where('entry_id', $request->entry)->first();
 

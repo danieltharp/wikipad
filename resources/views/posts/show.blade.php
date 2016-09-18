@@ -11,6 +11,7 @@
             <a href="/posts/{{ $entry->id }}/edit" class="btn btn-info">Edit</a>
             <a href="/posts/{{ $entry->id }}/delete" class="btn btn-danger">Delete</a>
         </div>
+        <div class="pull-right" style="clear: both; padding-top: 1em;"><a href="/posts/{{ $entry->id }}/revisions">Compare revisions.</a></div>
     @else
         <span class="text-danger"><h3>You are not authorized to view this post.</h3></span>
     @endif

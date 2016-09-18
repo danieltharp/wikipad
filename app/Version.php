@@ -2,9 +2,7 @@
 
 namespace App;
 
-use Faker\Provider\cs_CZ\DateTime;
 use Illuminate\Database\Eloquent\Model;
-use DB;
 use cogpowered\FineDiff\Render\Text;
 
 class Version extends Model
@@ -36,19 +34,6 @@ class Version extends Model
             $latest->body = $version->body;
         }
         $latest->save();
-    }
-
-    public function parseFromLastMajor(Version $newversion)
-    {
-        $lvmodel = Version::find($newversion->entry_id)->where('major', 1)->first();
-        $render = new Text;
-
-        return $render->process($lvmodel->body, $newversion->body);
-    }
-
-    public function showLatest($id)
-    {
-
     }
 
 }
